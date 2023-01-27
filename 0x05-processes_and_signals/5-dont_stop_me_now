@@ -2,13 +2,4 @@
 #script that stops 4-to_infinity_and_beyond process in task 4-to_infinity_and_beyond
 # apart from ctrl+c
 
-
-i=0
-while [ $i -lt 10 ]; do
-    echo "To infinity and beyond"
-    sleep 2
-    echo $(killall loop)
-
-done
-
-#echo $(killall -9 4-to_infinity_and_beyond)
+killall -9 4-to_infinity_and_beyond
