@@ -1,14 +1,9 @@
 #!/usr/bin/env bash
 
-i=1
-while [ $i -le 3 ]
-do
-    # inner loop
-    j=4
-    while [ $j -le 6 ]
-    do
-        echo "i: $i, j: $j"
-        j=$((j+1))
-    done
-    i=$((i+1))
-done
+# specify the file to be opened
+file="/etc/passwd"
+
+# open the file and read it line by line
+while read -r line; do
+  echo "$line"
+done < "$file"
