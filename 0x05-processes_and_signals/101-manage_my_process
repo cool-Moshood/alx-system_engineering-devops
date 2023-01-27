@@ -7,11 +7,11 @@ if [[ $1 == start ]]; then
     echo $! >> /var/run/my_process.pid
     echo "manage_my_process started"
 elif [[ $1 == stop ]]; then
-    pkill "$(pgrep -f /manage_my_process)"
+    kill "$(cat /var/run/my_process.pid)"
     rm -rf /var/run/my_process.pid
     echo "manage_my_process stopped"
 elif [[ $1 == restart ]]; then
-    pkill "$(pgrep -f /manage_my_process)"
+    kill "$(cat /var/run/my_process.pid)"
     rm -rf /var/run/my_process.pid
     ./manage_my_process &
     echo $! >> /var/run/my_process.pid
