@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 
@@ -32,11 +33,12 @@ int main(void)
 	for (i = 0; i < 5; i++)
 	{
 		pid = fork();
-		if (pid == 0)
+		if (pid > 0)
 		{
-			return (0);
 			printf("Zombie process created, PID: %d\n", pid);
 		}
+		else
+			exit(0);
 	}
 	infinite_while();
 	return (0);
