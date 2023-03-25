@@ -1,6 +1,5 @@
 # Using Puppet, create a file in /tmp.
-
-file { '/tmp/school':
+file {'/tmp/school':
     ensure  => file,
     owner   => 'www-data',
     group   => 'www-data',
