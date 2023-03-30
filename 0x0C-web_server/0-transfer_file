@@ -11,5 +11,5 @@ if (($# < 3)); then
 elif (($# == 3)); then
 	scp -o StrictHostKeyChecking=no "${PATH_TO_FILE}" "${USERNAME}@${IP}":~/
 else
-	scp -i "${SSH_PRIVATE_KEY}" StrictHostKeyChecking=no "${PATH_TO_FILE}" "${USERNAME}@${IP}":~/
+	scp -i "${SSH_PRIVATE_KEY}" -o StrictHostKeyChecking=no "${PATH_TO_FILE}" "${USERNAME}@${IP}":~/
 fi
