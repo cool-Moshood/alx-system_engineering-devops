@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # install nginx on my web serve web-01
-apt-get -y update
+
+apt-get update
 apt-get -y install nginx
 service nginx start
 ufw allow 'Nginx HTTP'
