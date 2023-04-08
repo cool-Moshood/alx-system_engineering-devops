@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # changes listening port to 80
-sed -i 's/listen 8080 default_server;/listen 80 default_server;/g' /etc/nginx/sites-enabled/default
-pkill nginx
+# first delete the existing sites-enabled then replace it with sites-available
+rm -rf /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx restart
+
