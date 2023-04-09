@@ -2,18 +2,16 @@
 # Configure HAproxy so that it send traffic to web-01 and web-02
 # Distribute requests using a roundrobin algorithm
 
+SETUP="frontend myapp
+        bind *:80
+        default_backend myapp_servers
+backend myapp_servers
+        balance roundrobin
+        server server1 54.173.2.233
+        server server2 54.210.243.50
+"
 sudo apt-get -y update
 sudo apt-get -y install haproxy
-cat << EOF |sudo tee -a /etc/haproxy/haproxy.cfg
-listen load_balancer
-        bind :80
-	mode http
-	option httpclose
-	option forwardfor
-	balance roundrobin
-	server 137831-web-01 54.159.24.15:80 check
-	server 137831-web-02 54.209.116.192:80 check
-EOF
-echo "$SETUP" >> /etc/haproxy/haproxy.cfg
-sudo /etc/init.d/haproxy restart
+echo "$SETUP" | sudo tee /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
 
