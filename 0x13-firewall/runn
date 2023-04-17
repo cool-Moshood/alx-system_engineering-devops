@@ -1,3 +1,0 @@
-sudo ufw status
-sudo ufw enable -y
-sudo ufw status
