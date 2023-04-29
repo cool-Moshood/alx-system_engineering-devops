@@ -6,7 +6,7 @@ import requests
 import sys
 
 if __name__ == '__main__':
-    """REST API control error """
+    """REST API error control"""
     if len(sys.argv) > 1 and isinstance(eval(sys.argv[1]), int):
         pass
     else:
