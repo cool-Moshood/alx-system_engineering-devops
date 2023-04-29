@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-
-"""accessing a Rest API for todo lists of employees"""
+"""Accessing a REST API for todo lists of employees"""
 
 import requests
 import sys
+
 
 if __name__ == '__main__':
     """REST API error control"""
