@@ -26,5 +26,5 @@ if __name__ == '__main__':
     with open('{}.csv'.format(employee_id), 'w') as file:
         for todo in todo_response:
             file.write('"{}","{}","{}","{}"\n'
-                   .format(employee_id, USERNAME, todo.get('completed'),
-                           todo.get('title')))
+                       .format(employee_id, USERNAME, todo.get('completed'),
+                               todo.get('title')))
