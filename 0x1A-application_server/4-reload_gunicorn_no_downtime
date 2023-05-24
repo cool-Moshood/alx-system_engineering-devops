@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
-# Get the process IDs of the running Gunicorn instances
-
-pidList="$(pgrep gunicorn)"
-
-# Send a HUP signal to each Gunicorn process
-for pid in $pidList; do
-	kill -HUP "$pid"
-done
+# This script gracefully restarts gunicorn app
+PID=$(pgrep gunicorn | head -n 1)
+kill -HUP "$PID"
 
