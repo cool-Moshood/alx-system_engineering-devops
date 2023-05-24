@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-# reload gunicorn gracefully
+
+# Get the process IDs of the running Gunicorn instances
 pidList="$(pgrep gunicorn)"
 
+# Send a HUP signal to each Gunicorn process
 for pid in $pidList; do
-        kill -HUP "$pid"
+	echo "Reloading Gunicorn process $pid"
+	kill -HUP "$pid"
 done
 
