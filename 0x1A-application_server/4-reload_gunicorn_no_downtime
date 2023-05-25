@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
-# reload gunicorn gracefully
-pidList="$(pgrep gunicorn)"
+# This script gracefully restarts gunicorn app
 
-for pid in $pidList; do
-        kill -HUP "$pid"
-done
+ps aux | pgrep gunicorn | awk '{ print $2 }' | xargs kill -HUP
 
